@@ -1,4 +1,4 @@
-const API_BASE = "https://workbot-production-0f8b.up.railway.app";
+const API_BASE = "https://workbot-production-2bb8.up.railway.app";
 
 let selectedTicket = "";
 let selectedPrice = 0;
