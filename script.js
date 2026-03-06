@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:5050";
+const API_BASE = "workbot-production-0f8b.up.railway.app";
 
 let selectedTicket = "";
 let selectedPrice = 0;
