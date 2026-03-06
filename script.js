@@ -111,6 +111,21 @@ function setStatus(status) {
   }
 }
 
+function showTicket(ticket) {
+  document.getElementById("ticketWrap").style.display = "block";
+
+  document.getElementById("ticketEvent").innerText = ticket.event;
+  document.getElementById("ticketDate").innerText = ticket.date;
+  document.getElementById("ticketTime").innerText = ticket.time;
+  document.getElementById("ticketAddress").innerText = ticket.address;
+  document.getElementById("ticketType").innerText = ticket.type;
+  document.getElementById("ticketCountView").innerText = ticket.count;
+  document.getElementById("ticketPrice").innerText = `${ticket.price} грн`;
+  document.getElementById("ticketName").innerText = ticket.name;
+  document.getElementById("ticketPhone").innerText = ticket.phone;
+  document.getElementById("ticketCode").innerText = ticket.code;
+}
+
 function checkStatus(orderId) {
   setStatus("pending");
 
@@ -121,6 +136,7 @@ function checkStatus(orderId) {
 
       if (data.status === "accepted") {
         setStatus("accepted");
+        showTicket(data.ticket);
         clearInterval(interval);
       }
 
