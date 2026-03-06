@@ -33,10 +33,34 @@
       <div class="statusText statusPending" id="statusText">⏳ Очікуємо підтвердження...</div>
     </div>
 
+    <div class="ticketWrap" id="ticketWrap" style="display:none">
+      <div class="ticketCard">
+        <div class="ticketHeader">
+          <div class="ticketLabel">E-TICKET</div>
+          <div class="ticketEvent" id="ticketEvent">Стендап вечір у Харкові</div>
+        </div>
+
+        <div class="ticketGrid">
+          <div><span>Дата</span><b id="ticketDate">7 березня 2026</b></div>
+          <div><span>Час</span><b id="ticketTime">20:00</b></div>
+          <div><span>Адреса</span><b id="ticketAddress">Холодногірська вулиця, 11</b></div>
+          <div><span>Квиток</span><b id="ticketType">Стандарт</b></div>
+          <div><span>Кількість</span><b id="ticketCountView">1</b></div>
+          <div><span>Сума</span><b id="ticketPrice">1500 грн</b></div>
+          <div><span>Ім'я</span><b id="ticketName">Назар</b></div>
+          <div><span>Телефон</span><b id="ticketPhone">+380...</b></div>
+        </div>
+
+        <div class="ticketCodeBlock">
+          <span>Код квитка</span>
+          <div class="ticketCode" id="ticketCode">ABC12345</div>
+        </div>
+      </div>
+    </div>
+
     <button class="buyBtn" onclick="openBuy()">Купити квиток</button>
   </main>
 
-  <!-- INFO MODAL -->
   <div class="modal" id="infoModal">
     <div class="modalBox">
       <div class="modalHead">
@@ -48,7 +72,6 @@
     </div>
   </div>
 
-  <!-- BUY MODAL -->
   <div class="modal" id="buyModal">
     <div class="modalBox">
       <div class="modalHead">
