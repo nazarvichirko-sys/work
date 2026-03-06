@@ -258,3 +258,86 @@ h1 {
   cursor: pointer;
   background: linear-gradient(90deg, #ff2d7a, #7c3aed);
 }
+
+.ticketWrap {
+  margin-top: 18px;
+  width: min(520px, 92vw);
+}
+
+.ticketCard {
+  background: linear-gradient(135deg, #131d33, #1d2740);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px;
+  padding: 18px;
+  text-align: left;
+  box-shadow: 0 10px 35px rgba(0,0,0,.25);
+}
+
+.ticketHeader {
+  margin-bottom: 16px;
+}
+
+.ticketLabel {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.ticketEvent {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.ticketGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ticketGrid div {
+  background: rgba(255,255,255,.04);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.ticketGrid span {
+  display: block;
+  color: #aab;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.ticketGrid b {
+  display: block;
+  font-size: 14px;
+}
+
+.ticketCodeBlock {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.05);
+}
+
+.ticketCodeBlock span {
+  display: block;
+  color: #aab;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.ticketCode {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 640px) {
+  .ticketGrid {
+    grid-template-columns: 1fr;
+  }
+}
