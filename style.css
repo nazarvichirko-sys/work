@@ -1,6 +1,5 @@
 html, body {
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
 }
 
 body {
@@ -8,14 +7,59 @@ body {
   font-family: Arial, sans-serif;
   background: #0b0f17;
   color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bgGlow {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(120px);
+  opacity: 0.22;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bgGlow1 {
+  width: 320px;
+  height: 320px;
+  background: #7c3aed;
+  top: 60px;
+  left: -80px;
+}
+
+.bgGlow2 {
+  width: 320px;
+  height: 320px;
+  background: #ff2d7a;
+  bottom: 40px;
+  right: -80px;
 }
 
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 18px;
-  background: #101827;
+  background: rgba(16, 24, 39, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #ff2d7a, #7c3aed);
 }
 
 .navLinks a {
@@ -29,28 +73,241 @@ nav {
   color: #fff;
 }
 
-.main {
-  height: calc(100vh - 52px);
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 40px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.heroLeft h1 {
+  font-size: 52px;
+  line-height: 1.04;
+  margin: 0 0 14px;
+}
+
+.badgeTop {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.heroText {
+  color: #b7bfd4;
+  max-width: 640px;
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.metaItem {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  color: #d7dbea;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.heroFeatures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.featureCard {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.featureTitle {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.featureText {
+  color: #aab;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.heroActions {
+  margin-top: 22px;
+}
+
+.posterCard {
+  background: linear-gradient(145deg, #151d30, #202b47);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 24px;
+  padding: 26px;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+}
+
+.posterBadge {
+  display: inline-block;
+  width: fit-content;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff2d7a, #7c3aed);
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+.posterTitle {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.posterSub {
+  margin-top: 10px;
+  color: #c7cde1;
+  font-size: 16px;
+}
+
+.posterLine {
+  height: 1px;
+  background: rgba(255,255,255,.08);
+  margin: 22px 0;
+}
+
+.posterMini {
+  display: grid;
+  gap: 14px;
+}
+
+.posterMini span {
+  display: block;
+  color: #aab;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.posterMini b {
+  font-size: 15px;
+}
+
+.contentGrid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.infoBox {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: 20px;
   padding: 20px;
 }
 
-h1 {
-  font-size: 38px;
-  margin: 0 0 10px;
+.wideBox {
+  grid-column: span 2;
 }
 
-.meta {
+.boxTitle {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+.listNice {
+  padding-left: 18px;
+  margin: 0;
+  color: #c3c9db;
+  line-height: 1.8;
+}
+
+.priceList {
+  display: grid;
+  gap: 12px;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,.04);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.priceRow span {
+  color: #dce1ef;
+}
+
+.priceRow b {
+  color: #fff;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.stepItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: rgba(255,255,255,.04);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.stepNum {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #ff2d7a, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.stepItem b {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stepItem p {
+  margin: 0;
   color: #aab;
-  margin-bottom: 20px;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .refNote {
+  margin-top: 24px;
   margin-bottom: 14px;
   padding: 10px 14px;
   border-radius: 999px;
@@ -58,6 +315,7 @@ h1 {
   color: #d7dbea;
   font-weight: 700;
   font-size: 14px;
+  width: fit-content;
 }
 
 .statusWrap {
@@ -66,6 +324,7 @@ h1 {
   border-radius: 16px;
   background: #151c2b;
   min-width: 280px;
+  width: fit-content;
 }
 
 .statusTitle {
@@ -90,13 +349,15 @@ h1 {
 }
 
 .buyBtn {
-  padding: 12px 18px;
+  margin-top: 8px;
+  padding: 14px 22px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 14px;
   color: #fff;
   font-weight: 900;
   cursor: pointer;
   background: linear-gradient(90deg, #ff2d7a, #7c3aed);
+  box-shadow: 0 8px 24px rgba(124,58,237,.25);
 }
 
 .modal {
@@ -107,6 +368,7 @@ h1 {
   justify-content: center;
   background: rgba(0, 0, 0, .7);
   padding: 14px;
+  z-index: 30;
 }
 
 .modalBox {
@@ -159,6 +421,20 @@ h1 {
   background: #1f2937;
   cursor: pointer;
   font-weight: 800;
+}
+
+.ticketSelectCard {
+  align-items: center;
+}
+
+.ticketSelectCard strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ticketSelectCard small {
+  color: #aab;
+  font-size: 12px;
 }
 
 .ticket:hover {
@@ -261,7 +537,7 @@ h1 {
 
 .ticketWrap {
   margin-top: 18px;
-  width: min(520px, 92vw);
+  width: min(720px, 100%);
 }
 
 .ticketCard {
@@ -336,8 +612,38 @@ h1 {
   letter-spacing: 2px;
 }
 
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .heroFeatures {
+    grid-template-columns: 1fr;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wideBox {
+    grid-column: span 1;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   .ticketGrid {
     grid-template-columns: 1fr;
+  }
+
+  .heroLeft h1 {
+    font-size: 38px;
+  }
+
+  .posterTitle {
+    font-size: 34px;
   }
 }
