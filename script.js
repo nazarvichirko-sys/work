@@ -89,13 +89,56 @@ function updateTotal() {
     `До сплати: ${total} грн`;
 }
 
+function setStatus(status) {
+  const wrap = document.getElementById("statusWrap");
+  const text = document.getElementById("statusText");
+
+  wrap.style.display = "block";
+  text.classList.remove("statusPending", "statusAccepted", "statusDeclined");
+
+  if (status === "pending") {
+    text.classList.add("statusPending");
+    text.innerText = "⏳ Очікуємо підтвердження...";
+  } else if (status === "accepted") {
+    text.classList.add("statusAccepted");
+    text.innerText = "✅ Оплату підтверджено";
+  } else if (status === "declined") {
+    text.classList.add("statusDeclined");
+    text.innerText = "❌ Оплату відхилено";
+  } else {
+    text.classList.add("statusPending");
+    text.innerText = "⏳ Очікуємо підтвердження...";
+  }
+}
+
+function checkStatus(orderId) {
+  setStatus("pending");
+
+  const interval = setInterval(async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/status/${orderId}`);
+      const data = await res.json();
+
+      if (data.status === "accepted") {
+        setStatus("accepted");
+        clearInterval(interval);
+      }
+
+      if (data.status === "declined") {
+        setStatus("declined");
+        clearInterval(interval);
+      }
+    } catch (e) {}
+  }, 3000);
+}
+
 async function sendReceipt() {
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim().replace(/\D/g, "");
   const file = document.getElementById("receipt").files[0];
 
   if (!ref) {
-    alert("Це посилання не містить ref. Відкрий сайт саме по персональній ссылці з Telegram.");
+    alert("Це посилання не містить ref. Відкрий сайт саме по персональній ссилці з Telegram.");
     return;
   }
 
@@ -129,8 +172,9 @@ async function sendReceipt() {
     const data = await res.json();
 
     if (data.ok) {
-      alert("Квитанція відправлена");
       closeBuy();
+      checkStatus(data.order_id);
+      alert("Квитанція відправлена");
     } else {
       alert("Помилка: " + (data.error ? JSON.stringify(data.error) : "невідома"));
     }
