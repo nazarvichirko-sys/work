@@ -51,13 +51,42 @@ h1 {
 }
 
 .refNote {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   padding: 10px 14px;
   border-radius: 999px;
   background: #1b2233;
   color: #d7dbea;
   font-weight: 700;
   font-size: 14px;
+}
+
+.statusWrap {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #151c2b;
+  min-width: 280px;
+}
+
+.statusTitle {
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.statusText {
+  font-weight: 900;
+}
+
+.statusPending {
+  color: #ffd166;
+}
+
+.statusAccepted {
+  color: #7CFC98;
+}
+
+.statusDeclined {
+  color: #ff8f8f;
 }
 
 .buyBtn {
@@ -133,7 +162,7 @@ h1 {
 }
 
 .ticket:hover {
-  background: #2b364a;
+  background: #2d3748;
 }
 
 .priceBox {
