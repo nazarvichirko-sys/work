@@ -7,8 +7,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="bgGlow bgGlow1"></div>
+  <div class="bgGlow bgGlow2"></div>
+
   <nav>
-    <div><b>StandUp • Харків</b></div>
+    <div class="logoWrap">
+      <div class="logoDot"></div>
+      <b>StandUp • Харків</b>
+    </div>
+
     <div class="navLinks">
       <a href="#" onclick="openTiming();return false;">Таймінг</a>
       <a href="#" onclick="openRules();return false;">Правила</a>
@@ -16,12 +23,141 @@
     </div>
   </nav>
 
-  <main class="main">
-    <h1>Стендап вечір у Харкові</h1>
+  <main class="page">
+    <section class="hero">
+      <div class="heroLeft">
+        <div class="badgeTop">STANDUP NIGHT • KHARKIV</div>
 
-    <div class="meta">
-      7 березня 2026 • 20:00<br>
-      Холодногірська вулиця, 11
+        <h1>Стендап вечір у Харкові</h1>
+
+        <p class="heroText">
+          Вечір живого гумору, камерної атмосфери та гарного настрою.
+          Два блоки виступів, різні коміки, жива сцена і справжній стендап без зайвого пафосу.
+        </p>
+
+        <div class="heroMeta">
+          <div class="metaItem">📅 7 березня 2026</div>
+          <div class="metaItem">🕗 20:00</div>
+          <div class="metaItem">📍 Холодногірська вулиця, 11</div>
+        </div>
+
+        <div class="heroFeatures">
+          <div class="featureCard">
+            <div class="featureTitle">18+</div>
+            <div class="featureText">Рекомендований формат для дорослої аудиторії</div>
+          </div>
+
+          <div class="featureCard">
+            <div class="featureTitle">2 блоки</div>
+            <div class="featureText">Живі виступи коміків у двох частинах вечора</div>
+          </div>
+
+          <div class="featureCard">
+            <div class="featureTitle">Місць мало</div>
+            <div class="featureText">Краще бронювати квитки заздалегідь</div>
+          </div>
+        </div>
+
+        <div class="heroActions">
+          <button class="buyBtn" onclick="openBuy()">Купити квиток</button>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="posterCard">
+          <div class="posterBadge">LIVE</div>
+          <div class="posterTitle">STANDUP</div>
+          <div class="posterSub">Харків • 7 березня • 20:00</div>
+
+          <div class="posterLine"></div>
+
+          <div class="posterMini">
+            <div>
+              <span>Локація</span>
+              <b>Холодногірська, 11</b>
+            </div>
+            <div>
+              <span>Формат</span>
+              <b>Живий вечір гумору</b>
+            </div>
+            <div>
+              <span>Квитки</span>
+              <b>від 1500 грн</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contentGrid">
+      <div class="infoBox">
+        <div class="boxTitle">Що на вас чекає</div>
+        <ul class="listNice">
+          <li>жива атмосфера стендап вечора</li>
+          <li>2 блоки виступів коміків</li>
+          <li>хороший звук і камерний формат</li>
+          <li>зручна система купівлі квитка онлайн</li>
+        </ul>
+      </div>
+
+      <div class="infoBox">
+        <div class="boxTitle">Ціни</div>
+        <div class="priceList">
+          <div class="priceRow">
+            <span>Стандарт</span>
+            <b>1500 грн</b>
+          </div>
+          <div class="priceRow">
+            <span>Хороші місця</span>
+            <b>2000 грн</b>
+          </div>
+          <div class="priceRow">
+            <span>VIP</span>
+            <b>3000 грн</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="infoBox wideBox">
+        <div class="boxTitle">Як проходить покупка</div>
+        <div class="steps">
+          <div class="stepItem">
+            <div class="stepNum">1</div>
+            <div>
+              <b>Обираєш квиток</b>
+              <p>Стандарт, Хороші місця або VIP.</p>
+            </div>
+          </div>
+
+          <div class="stepItem">
+            <div class="stepNum">2</div>
+            <div>
+              <b>Вказуєш кількість</b>
+              <p>Сайт автоматично рахує загальну суму до сплати.</p>
+            </div>
+          </div>
+
+          <div class="stepItem">
+            <div class="stepNum">3</div>
+            <div>
+              <b>Завантажуєш квитанцію</b>
+              <p>Після оплати надсилаєш скрін або фото підтвердження.</p>
+            </div>
+          </div>
+
+          <div class="stepItem">
+            <div class="stepNum">4</div>
+            <div>
+              <b>Отримуєш підтвердження</b>
+              <p>Після перевірки на сайті з’явиться електронний квиток.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="refNote" id="refNote" style="display:none">
+      Ви відкрили сайт по персональному посиланню
     </div>
 
     <div class="statusWrap" id="statusWrap" style="display:none">
@@ -53,8 +189,6 @@
         </div>
       </div>
     </div>
-
-    <button class="buyBtn" onclick="openBuy()">Купити квиток</button>
   </main>
 
   <div class="modal" id="infoModal">
@@ -77,18 +211,27 @@
 
       <div class="modalBody">
         <div id="ticketSelect">
-          <div class="ticket" onclick="selectTicket('Стандарт',1500)">
-            <span>Стандарт</span>
+          <div class="ticket ticketSelectCard" onclick="selectTicket('Стандарт',1500)">
+            <div>
+              <strong>Стандарт</strong>
+              <small>Класичний квиток на подію</small>
+            </div>
             <span>1500 грн</span>
           </div>
 
-          <div class="ticket" onclick="selectTicket('Хороші місця',2000)">
-            <span>Хороші місця</span>
+          <div class="ticket ticketSelectCard" onclick="selectTicket('Хороші місця',2000)">
+            <div>
+              <strong>Хороші місця</strong>
+              <small>Кращий огляд та ближче до сцени</small>
+            </div>
             <span>2000 грн</span>
           </div>
 
-          <div class="ticket" onclick="selectTicket('VIP',3000)">
-            <span>VIP</span>
+          <div class="ticket ticketSelectCard" onclick="selectTicket('VIP',3000)">
+            <div>
+              <strong>VIP</strong>
+              <small>Найкращий формат перегляду</small>
+            </div>
             <span>3000 грн</span>
           </div>
         </div>
@@ -112,7 +255,7 @@
           <div class="payBox">
             <div class="payTitle">Оплата</div>
             <div class="paySub">Оплати на картку:</div>
-            <div class="cardNumber">5355 2800 5690 4285</div>
+            <div class="cardNumber">0000 0000 0000 0000</div>
             <div class="totalPriceText" id="totalPriceText">До сплати: 1500 грн</div>
           </div>
 
