@@ -1,0 +1,231 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0f17;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: #101827;
+}
+
+.navLinks a {
+  color: #aab;
+  text-decoration: none;
+  margin-left: 16px;
+  font-weight: 700;
+}
+
+.navLinks a:hover {
+  color: #fff;
+}
+
+.main {
+  height: calc(100vh - 52px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 38px;
+  margin: 0 0 10px;
+}
+
+.meta {
+  color: #aab;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.refNote {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #1b2233;
+  color: #d7dbea;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.buyBtn {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff2d7a, #7c3aed);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .7);
+  padding: 14px;
+}
+
+.modalBox {
+  width: min(460px, 94vw);
+  background: #111827;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.modalHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 10px;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modalBody {
+  margin-top: 12px;
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.closeBtn {
+  margin-top: 14px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: #2a2a2a;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ticket {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 12px;
+  background: #1f2937;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.ticket:hover {
+  background: #2b364a;
+}
+
+.priceBox {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #2a3350;
+  font-weight: 900;
+}
+
+.payBox {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #1b2233;
+}
+
+.payTitle {
+  font-weight: 900;
+}
+
+.paySub {
+  margin-top: 6px;
+  color: #aab;
+}
+
+.cardNumber {
+  margin-top: 8px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.totalPriceText {
+  margin-top: 10px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.formBox {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.label {
+  display: block;
+  margin: 10px 0 6px;
+  color: #aab;
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  background: #0f1625;
+  color: #fff;
+}
+
+.phoneBox {
+  display: flex;
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f1625;
+}
+
+.prefix {
+  padding: 12px;
+  background: #1f2937;
+  color: #ccc;
+  font-weight: 900;
+}
+
+.phoneInput {
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 12px;
+  background: transparent;
+  color: #fff;
+}
+
+.sendBtn {
+  margin-top: 14px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff2d7a, #7c3aed);
+}

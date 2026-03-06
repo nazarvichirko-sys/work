@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StandUp • Харків</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <div><b>StandUp • Харків</b></div>
+    <div class="navLinks">
+      <a href="#" onclick="openTiming();return false;">Таймінг</a>
+      <a href="#" onclick="openRules();return false;">Правила</a>
+      <a href="#" onclick="openTickets();return false;">Квитки</a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <h1>Стендап вечір у Харкові</h1>
+
+    <div class="meta">
+      7 березня 2026 • 20:00<br>
+      Холодногірська вулиця, 11
+    </div>
+
+    <div class="refNote" id="refNote" style="display:none">
+      Ви відкрили сайт по персональному посиланню
+    </div>
+
+    <button class="buyBtn" onclick="openBuy()">Купити квиток</button>
+  </main>
+
+  <div class="modal" id="infoModal">
+    <div class="modalBox">
+      <div class="modalHead">
+        <h2 id="modalTitle">Інформація</h2>
+        <button class="iconBtn" onclick="closeInfo()">✕</button>
+      </div>
+      <div id="modalContent" class="modalBody"></div>
+      <button class="closeBtn" onclick="closeInfo()">Закрити</button>
+    </div>
+  </div>
+
+  <div class="modal" id="buyModal">
+    <div class="modalBox">
+      <div class="modalHead">
+        <h2>Обери квиток</h2>
+        <button class="iconBtn" onclick="closeBuy()">✕</button>
+      </div>
+
+      <div class="modalBody">
+        <div id="ticketSelect">
+          <div class="ticket" onclick="selectTicket('Стандарт',1500)">
+            <span>Стандарт</span>
+            <span>1500 грн</span>
+          </div>
+
+          <div class="ticket" onclick="selectTicket('Хороші місця',2000)">
+            <span>Хороші місця</span>
+            <span>2000 грн</span>
+          </div>
+
+          <div class="ticket" onclick="selectTicket('VIP',3000)">
+            <span>VIP</span>
+            <span>3000 грн</span>
+          </div>
+        </div>
+
+        <div id="payment" style="display:none">
+          <div class="priceBox" id="ticketInfo"></div>
+
+          <div class="formBox">
+            <label class="label">Кількість квитків</label>
+            <input
+              class="input"
+              id="ticketCount"
+              type="number"
+              min="1"
+              value="1"
+              onchange="updateTotal()"
+              oninput="updateTotal()"
+            />
+          </div>
+
+          <div class="payBox">
+            <div class="payTitle">Оплата</div>
+            <div class="paySub">Оплати на картку:</div>
+            <div class="cardNumber">0000 0000 0000 0000</div>
+            <div class="totalPriceText" id="totalPriceText">До сплати: 1500 грн</div>
+          </div>
+
+          <div class="formBox">
+            <label class="label">Ім'я</label>
+            <input class="input" id="name" placeholder="Ваше ім'я" />
+
+            <label class="label">Номер телефону</label>
+            <div class="phoneBox">
+              <div class="prefix">+380</div>
+              <input class="phoneInput" id="phone" placeholder="00 000 00 00" />
+            </div>
+
+            <label class="label">Квитанція</label>
+            <input class="input" type="file" id="receipt" accept="image/*" />
+
+            <button class="sendBtn" onclick="sendReceipt()">Відправити квитанцію</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="closeBtn" onclick="closeBuy()">Закрити</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
